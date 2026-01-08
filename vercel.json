@@ -1,13 +1,12 @@
 {
-  "headers": [
+  "version": 3,
+  "routes": [
     {
-      "source": "/public/github-metrics.svg",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
+      "src": "/github-metrics.svg",
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      },
+      "dest": "/public/github-metrics.svg"
     }
   ]
 }
