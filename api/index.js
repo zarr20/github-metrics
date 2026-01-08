@@ -1,5 +1,5 @@
 // api/index.js
-import metrics from "@lowlighter/metrics"
+import metrics from "lowlighter-metrics"
 import chromium from "@sparticuz/chromium"
 import puppeteer from "puppeteer-core"
 
