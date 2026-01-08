@@ -7,7 +7,7 @@
     "start": "node api/index.js"
   },
   "dependencies": {
-    "lowlighter-metrics": "^3.34.0",
+    "lowlighter-metrics": "https://github.com/lowlighter/metrics",
     "puppeteer-core": "^21.0.0",
     "@sparticuz/chromium": "^119.0.0"
   },
