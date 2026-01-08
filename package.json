@@ -1,0 +1,17 @@
+{
+  "name": "github-metrics-api",
+  "version": "1.0.0",
+  "description": "Dynamic GitHub Metrics API on Vercel",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js"
+  },
+  "dependencies": {
+    "@lowlighter/metrics": "^3.34.0",
+    "puppeteer-core": "^21.0.0",
+    "@sparticuz/chromium": "^119.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
