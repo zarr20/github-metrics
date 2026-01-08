@@ -6,8 +6,8 @@ on:
     branches: ["main"]
 
 concurrency:
-  group: metrics-prd  # unique identifier for this workflow/environment
-  cancel-in-progress: true  # cancels any previous runs in this group
+  group: metrics-prd
+  cancel-in-progress: true
 
 jobs:
   github-metrics:
@@ -26,25 +26,33 @@ jobs:
           base: header, activity
           config_timezone: Asia/Jakarta
 
-          # Habits (full history)
+          # Habits
           plugin_habits: yes
           plugin_habits_charts_type: classic
           plugin_habits_days: 9999
           plugin_habits_facts: yes
           plugin_habits_from: all
-          plugin_habits_filename: /public/github-metrics-habits.svg
+          plugin_habits_filename: public/github-metrics-habits.svg
 
           # Languages
           plugin_languages: yes
           plugin_languages_details: bytes-size, percentage
           plugin_languages_ignored: html, css
-          plugin_languages_filename: /public/github-metrics-languages.svg
+          plugin_languages_filename: public/github-metrics-languages.svg
 
           # Stars
           plugin_stars: yes
           plugin_stars_limit: 10
-          plugin_stars_filename: /public/github-metrics-stars.svg
+          plugin_stars_filename: public/github-metrics-stars.svg
 
           # Activity
           plugin_activity: yes
-          plugin_activity_filename: /public/github-metrics-activity.svg
+          plugin_activity_filename: public/github-metrics-activity.svg
+
+      - name: Commit Metrics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/github-metrics-*.svg
+          git commit -m "Update GitHub Metrics" || echo "No changes to commit"
+          git push
